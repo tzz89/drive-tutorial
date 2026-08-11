@@ -7,19 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # 1. Official way to install pnpm quickly
+      #    Version comes from "packageManager" in package.json
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9 # Change this to match your local pnpm version if needed
 
       # 2. Native Node setup with caching to save your free minutes
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "pnpm"
 
       # 3. Clean dependency installation
